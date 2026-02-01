@@ -1,0 +1,1761 @@
+
+<style>
+    body {
+font-family: "Inter", Sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* ===============================
+   TOP HEADER
+================================ */
+
+.top-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.header-logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Contact info */
+.header-contact {
+  display: flex;
+  align-items: center;
+  font-size: 17px;
+  color: #333;
+  font-weight: 500;
+  gap: 12px;
+}
+
+.header-contact a {
+  color: #333;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-contact i {
+  color: #2596be;
+  font-size: 16px;
+  border-radius: 50%;
+  padding: 6px;
+  border: 1px solid #2596be;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.35s ease;
+}
+
+/* Hover effect */
+.header-contact a:hover i {
+  background: #2596be;
+  color: #fff;
+  transform: translateY(-2px) scale(1.08);
+  box-shadow: 0 6px 15px rgba(13, 110, 253, 0.35);
+}
+
+/* Divider line */
+.divider {
+  width: 1px;
+  height: 14px;
+  background: #ccc;
+}.contact-toggle {
+  display: none;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+
+  /* Header row */
+  .header-row {
+    display: flex;
+    flex-wrap: wrap;                 /* 👈 IMPORTANT */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Logo */
+  .header-logo img {
+    height: 42px;
+  }
+
+  /* Toggle button */
+  .contact-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #2596be;
+    background: #fff;
+    color: #2596be;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .contact-toggle:hover {
+    background: #2596be;
+    color: #fff;
+  }
+
+  /* Contact info (opens BELOW logo & toggle) */
+  .header-contact {
+    display: none;
+    width: 100%;                     /* 👈 FULL WIDTH */
+    margin-top: 12px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+  }
+
+  /* When toggle active */
+  .header-contact.active {
+    display: flex;
+    animation: slideDown 0.4s ease;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .header-contact a {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .divider {
+    display: none;
+  }
+}
+
+
+/* ===============================
+   HERO SECTION – INTERICS STYLE
+================================ */
+
+.hero-wrapper {
+  padding: 60px 30px;
+  background: #fff;
+}
+
+/* Main Black Box */
+.hero-box {
+  background: #000;
+  border-radius: 25px;
+  padding: 60px 50px;
+  position: relative;
+  overflow: hidden;
+max-width: 1200px;   /* 👈 content width control */
+  margin: 0 auto;  
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+}
+
+/* Fix row width */
+.hero-box .row {
+  width: 100%;
+}
+
+/* ===============================
+   GLOW EFFECT
+================================ */
+.glow-circle {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, #2596be, transparent 65%);
+  animation: pulse 4s infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(0.9); opacity: 0.5; }
+  50%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.5; }
+}
+
+/* ===============================
+   IMAGE
+================================ */
+.hero-img img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  animation: floatImg 4s ease-in-out infinite;
+}
+
+@keyframes floatImg {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* ===============================
+   CONTENT
+================================ */
+.hero-content {
+  color: #fff;
+}
+
+.small-title {
+  font-size: 31px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 10px;
+}
+
+/* Text animation */
+.animate-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: textFadeUp 0.9s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.4s; }
+.delay-2 { animation-delay: 0.8s; }
+.delay-3 { animation-delay: 1.2s; }
+
+@keyframes textFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content h1 {
+  font-size: 69px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hero-content p {
+  margin: 18px 0 28px;
+  color: #ccc;
+  font-size: 27px;
+}
+
+/* Highlight text */
+.highlight {
+  color: #2596be;
+  text-shadow: 0 0 15px rgba(0,229,255,0.6);
+  animation: glowText 3s infinite alternate;
+}
+
+@keyframes glowText {
+  from { text-shadow: 0 0 10px rgba(0,229,255,0.4); }
+  to   { text-shadow: 0 0 28px rgba(0,229,255,1); }
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.hero-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: #2596be;
+  color: #000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-btn:hover {
+  background: #fff;
+  transform: translateY(-3px);
+}
+
+/* Button shine animation */
+.shine-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.7),
+    transparent
+  );
+  animation: shine 2.5s infinite;
+}
+
+@keyframes shine {
+  0%   { left: -100%; }
+  60%  { left: 120%; }
+  100% { left: 120%; }
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 991px) {
+  .hero-box {
+    padding: 45px 30px;
+    min-height: auto;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+  .small-title {
+  font-size: 29px;
+  
+}
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 28px;
+  }
+ .hero-content p {
+    font-size: 25px;
+  }
+  .hero-img {
+    margin-bottom: 25px;
+  }
+}
+/* about */
+
+/* ===============================
+   BASE STYLE
+================================ */
+
+.brand-message-section {
+  padding: 25px 20px;
+  background: #fff;
+  margin-top:-36px;
+}
+
+.brand-message-section .container {
+  max-width: 950px;
+  margin: auto;
+  text-align: center;
+}
+
+.brand-title {
+  font-size: 27px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 20px;
+  color: #111;
+}
+
+.brand-text {
+  font-size: 19px;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* ===============================
+   SCROLL ANIMATION
+================================ */
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal-section.active .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay */
+.delay-1 { transition-delay: 0.3s; }
+.delay-2 { transition-delay: 0.6s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brand-title { font-size: 17px; }
+  .brand-text { font-size: 14px; }
+}
+
+/* ===============================
+   WORK SHOWCASE SECTION
+================================ */
+
+.work-showcase {
+  padding: 30px 20px;
+  background: #fff;
+}
+
+.work-showcase .container {
+  max-width: 1100px;
+  margin: auto;
+  margin-top:-30px;
+  text-align: center;
+}
+
+/* Title */
+.work-title {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.6px;
+  margin-bottom: 35px;
+  color: #111;
+  text-transform: uppercase;
+}
+
+/* Grid */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.work-card {
+  border-radius: 6px;
+ 
+
+}
+.work-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.work-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Image wrapper */
+.work-img {
+  height: 88%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Image */
+.work-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+/* Gradient overlay */
+.work-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.45),
+    transparent
+  );
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+/* Hover effect ONLY on image */
+.work-img:hover img {
+  transform: scale(1.08);
+}
+
+.work-img:hover::after {
+  opacity: 1;
+}
+
+
+/* When visible */
+.reveal-section.active .work-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger effect (auto-looking) */
+.work-card:nth-child(1) { transition-delay: 0.1s; }
+.work-card:nth-child(2) { transition-delay: 0.2s; }
+.work-card:nth-child(3) { transition-delay: 0.3s; }
+.work-card:nth-child(4) { transition-delay: 0.1s; }
+.work-card:nth-child(5) { transition-delay: 0.2s; }
+.work-card:nth-child(6) { transition-delay: 0.3s; }
+.work-card:nth-child(7) { transition-delay: 0.1s; }
+.work-card:nth-child(8) { transition-delay: 0.2s; }
+.work-card:nth-child(9) { transition-delay: 0.3s; }
+
+/* ===============================
+   SCROLL ANIMATION
+================================ */
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal-section.active .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 992px) {
+  .work-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .work-title {
+    font-size: 14px;
+  }
+}
+.strategy-section {
+  padding: 30px 20px 60px; /* 👈 TOP kam, bottom same */
+  background: #fff;
+}
+
+
+.strategy-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* GRID */
+.strategy-grid {
+  max-width: 900px;
+  margin: auto;
+  padding:20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px 40px;
+}
+
+/* ITEM */
+.strategy-item {
+  display: flex;
+  margin-top:-20px;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ICON */
+.strategy-icon {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: #e9f4f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.strategy-icon img {
+  width: 78px;
+  height: 78px;
+  object-fit: contain;
+}
+
+/* TEXT */
+.strategy-text {
+  font-size: 19px;
+  font-weight: 600;
+  color: #222;
+
+  line-height: 1.4;
+}
+/* ===============================
+   FADE IN LEFT / RIGHT
+================================ */
+
+/* Initial hidden state */
+.fade-left,
+.fade-right {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+/* Left */
+.fade-left {
+  transform: translateX(-40px);
+}
+
+/* Right */
+.fade-right {
+  transform: translateX(40px);
+}
+
+/* When visible */
+.fade-left.show,
+.fade-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .strategy-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+.stats-section {
+  padding: 39px 0;
+  width: 100%;
+  /* Premium Mesh Gradient from Image */
+  background: radial-gradient(at 0% 0%, #2bb4d4 0%, transparent 55%),
+              radial-gradient(at 50% 0%, #4899e0 0%, transparent 50%),
+              radial-gradient(at 100% 0%, #29c0dd 0%, transparent 55%),
+              radial-gradient(at 50% 100%, #3467d3 0%, transparent 50%),
+              #3169d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  color: #ffffff;
+  position: relative;
+}
+
+.stat-box {
+  position: relative;
+  padding: 20px 0;
+  /* Box ko center karne ke liye */
+  display: flex;
+  justify-content: center; 
+}
+
+/* Inner content ko left-align karne ke liye wrapper */
+.stat-content {
+  text-align: left;
+  display: inline-block;
+}
+
+/* Vertical Dividers */
+.stat-box:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  width: 1.5px;
+  height: 70%;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Numbers Styling */
+.stat-box h2 {
+  font-size: 69px; /* Image jaisa bold look */
+  font-weight: 500;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  line-height: 0.85; /* Text aur Number ke beech gap kam karne ke liye */
+  letter-spacing: -2px; /* Numbers ko tight karne ke liye */
+}
+
+/* Description Text Styling */
+.stat-box p {
+  font-size: 23px; 
+  font-weight: 600;
+  margin: 8px 0 0 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+/* Responsive for Tablets/Mobile */
+@media (max-width: 992px) {
+  .stat-box h2 { font-size: 60px; }
+  .stat-box p { font-size: 18px; }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  .stat-box:not(:last-child)::after {
+    display: none;
+  }
+  .stat-content {
+    text-align: center; /* Mobile par center look better lagta hai */
+  }
+}
+/* ===============================
+   CONTACT SECTION
+================================ */
+/* ===============================
+   CONTACT SECTION
+================================ */
+
+.contact-section {
+  position: relative;
+  padding: 90px 20px 80px;
+  background: #f2f2f2;
+}
+
+/* ===============================
+   APPOINTMENT BUTTON
+================================ */
+
+.appointment-btn {
+  position: absolute;
+  top: 17px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+
+  background: linear-gradient(90deg, #2bb0e6 0%, #2f7de1 100%);
+  color: #fff;
+  padding: 16px 20px;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  font-weight: 600;
+  border-radius: 3px;
+  text-decoration: none;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: 0.3s;
+  margin-top:10px;
+ 
+}
+
+.appointment-btn:hover {
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* ===============================
+   MAIN LAYOUT
+================================ */
+
+.contact-layout {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 65% 35%;
+  gap: 30px;
+  align-items: stretch;
+}
+
+/* ===============================
+   VIDEO SECTION
+================================ */
+
+.contact-video {
+  background: #000;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.contact-video video {
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===============================
+   FORM SECTION
+================================ */
+
+.contact-form-box {
+  background: #fff;
+  padding: 38px 32px;
+  border-radius: 6px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 4px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+.contact-form button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 9px 24px;
+  font-size: 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #222;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+/* Tablet & Mobile */
+@media (max-width: 992px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-video video {
+    min-height: 154px;
+  }
+
+  .appointment-btn {
+    font-size: 12px;
+    padding: 9px 18px;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 576px) {
+  .contact-form-box {
+    padding: 30px 22px;
+  }
+
+  .appointment-btn {
+    font-size: 11px;
+    padding: 8px 16px;
+  }
+}
+
+/* ===============================
+   FOOTER – INTERICS STYLE
+================================ */
+
+.footer-section {
+  background: linear-gradient(180deg, #111 0%, #000 100%);
+  color: #bfbfbf;
+  padding: 60px 20px 25px;
+  font-size: 13px;
+}
+
+.footer-section .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* TOP FOOTER */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 👈 ALL EQUAL */
+  gap: 30px;
+  padding-bottom: 10px;
+  margin-left:-110px;
+}
+
+
+.footer-col h6 {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  display: flex;
+  align-items: flex-start;   /* 👈 icon top pe rahe */
+  gap: 10px;
+
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* Icon fixed width */
+.footer-col ul li i {
+  width: 16px;               /* 👈 sab icons same column */
+  margin-top: 6px;  
+  font-weight:600;         /* text ke saath align */
+  color: #fff;
+  flex-shrink: 0;
+}
+
+/* Text alignment fix */
+.footer-col ul li span,
+.footer-col ul li p {
+  display: block;
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.services-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.services-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+/* Small icons */
+.services-list li img {
+   width: 95px;          /* 👈 bigger */
+  height: auto;
+  object-fit: contain;
+  padding:5px;
+ 
+}
+
+.dot {
+  width: 6px;
+      margin-top: 8px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.dot.brand { background: #8bc34a; }
+.dot.digital { background: #2bb0e6; }
+.dot.space { background: #ff4d4d; }
+
+/* ===============================
+   BOTTOM BAR (IMAGE JAISE)
+================================ */
+.footer-bottom-custom {
+  padding: -11px 0 20px;
+  margin-bottom:-16px;
+}
+
+/* MAIN ROW */
+.footer-line-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+/* LOGO */
+.footer-logo-custom {
+  margin-left: 80px; /* 👈 thoda center-left feel */
+}
+
+.footer-logo-custom img {
+  height: 54px;
+  width: auto;
+}
+
+/* BORDER LINE */
+.footer-line {
+  flex: 1;
+  margin-top:51px;
+  height: 4px;
+  background: rgba(255,255,255,0.35);
+}
+
+/* SOCIAL ICONS */
+.footer-social-custom {
+  display: flex;
+  gap: 10px;
+  margin-right: -126px;
+  margin-top: 17px;
+}
+
+.footer-social-custom a {
+  width: 30px;
+  height: 30px;
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  transition: 0.3s;
+}
+
+.footer-social-custom a:hover {
+  background: #2596be;
+  border-color: #2596be;
+}
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 992px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+      margin-left:-0px;
+  }
+}
+
+@media (max-width: 576px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+      margin-left:-0px;
+  }
+
+ 
+
+}
+/* ===============================
+   MOBILE: DISABLE FADE-UP ANIMATION
+================================ */
+
+@media (max-width: 768px) {
+
+  .reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .reveal-section {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+/* ===============================
+   SERVICES FOOTER – DESKTOP ONLY
+================================ */
+
+@media (min-width: 992px) {
+
+  .services-col h6 {
+    margin-left: 60px;
+  }
+
+  .services-col .services-list {
+    margin-left: 62px;
+    margin-top: 46px;
+  }
+
+}
+/* ===============================
+   ENQUIRY POPUP
+================================ */
+
+.enquiry-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s ease;
+  z-index: 9999;
+}
+
+.enquiry-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.enquiry-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 420px;
+  padding: 35px 30px;
+  border-radius: 12px;
+  text-align: center;
+  transform: scale(0.7) translateY(40px);
+  transition: 0.4s ease;
+  position: relative;
+}
+
+.enquiry-overlay.active .enquiry-modal {
+  transform: scale(1) translateY(0);
+}
+
+/* Close button */
+.close-popup {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+/* Form */
+.enquiry-form input,
+.enquiry-form textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.enquiry-form button {
+  background: #2596be;
+  color: #fff;
+  border: none;
+  padding: 10px 22px;
+  font-size: 13px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.enquiry-form button:hover {
+  background: #000;
+}
+
+</style>
+<!-- Bootstrap -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="icon" type="image/png" href="img/favicon.jpg">
+
+
+
+   <header class="top-header">
+  <div class="container">
+    <div class="header-row">
+
+      <!-- Logo -->
+      <div class="header-logo">
+        <div class="header-logo">
+  <img src="img/interics_logo.jpg" alt="Interics Logo">
+</div>
+
+      </div>
+
+      <!-- Toggle Button (Mobile only) -->
+      <button class="contact-toggle" id="contactToggle">
+        <i class="bi bi-headset"></i>
+      </button>
+
+      <!-- Contact Info -->
+      <div class="header-contact" id="headerContact">
+    
+
+       
+      </div>
+
+    </div>
+  </div>
+</header>
+
+
+
+<section class="hero-wrapper">
+  <div class="hero-box">
+
+    <!-- Glow -->
+    <span class="glow-circle"></span>
+
+    <div class="row align-items-center">
+
+      <!-- Image -->
+      <div class="col-lg-6 hero-img">
+        
+        <img src="img/hero_img.jpg">
+
+      </div>
+
+      <!-- Content -->
+      <div class="col-lg-6 hero-content">
+  <h6 class="small-title animate-text">Elevate Your</h6>
+
+  <h1 class="animate-text delay-1">
+    Digital Brand<br>
+    <span class="highlight">Experience</span>
+  </h1>
+
+  <p class="animate-text delay-2">
+    Across Every<br>Digital Touchpoint.
+  </p>
+
+<a href="#enquiry-form" class="hero-btn shine-btn delay-3">
+  ENQUIRE NOW
+</a>
+
+</div>
+
+
+    </div>
+  </div>
+</section>
+<!-- Enquiry Popup -->
+<div class="enquiry-overlay" id="enquiryPopup">
+  <div class="enquiry-modal">
+
+    <span class="close-popup" id="closePopup">&times;</span>
+
+    <h3>Enquiry Form</h3>
+    <p>Let’s discuss your project</p>
+
+    <form class="enquiry-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Contact Number" required>
+      <textarea rows="3" placeholder="Your Message"></textarea>
+      <button type="submit">Submit Enquiry</button>
+    </form>
+
+  </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<section class="brand-message-section reveal-section">
+  <div class="container">
+
+    <h2 class="brand-title reveal-item">
+      IN B2B, A STRONG DIGITAL BRAND IMAGE IS NON-NEGOTIABLE.
+    </h2>
+
+    <p class="brand-text reveal-item delay-1">
+      Interics Designs creates targeted digital experiences that resonate with your customers
+      and clearly convey your advantages. From website design and development to ROI-driven
+      product advertising, we manage the entire process with precision and intent.
+    </p>
+
+    <p class="brand-text reveal-item delay-2">
+      For B2B success, building a robust digital brand image is imperative. We develop
+      customer-centric digital experiences that translate complex technology into clear,
+      accessible and engaging communication.
+    </p>
+
+  </div>
+</section>
+  <h3 class="work-title ">
+      FROM WEBSITE DESIGN TO HIGH-ROI ADVERTISING – ENSURING SEAMLESS EXECUTION.
+    </h3>
+
+<!-- ================= PORTFOLIO ================= -->
+ <section class="work-showcase reveal-section">
+  <div class="container">
+
+    <div class="work-grid">
+
+      <div class="work-card ">
+        <div class="work-img">
+         
+          <img src="img/1.jpg">
+        </div>
+      </div>
+
+      <div class="work-card ">
+        <div class="work-img">
+          <img src="img/2.jpg">
+        </div>
+      </div>
+
+      <div class="work-card ">
+        <div class="work-img">
+          <img src="img/3.jpg">
+        </div>
+      </div>
+
+      <div class="work-card ">
+        <div class="work-img">
+          <img src="img/4.jpg">
+        </div>
+      </div>
+
+      <div class="work-card ">
+        <div class="work-img">
+          <img src="img/5.jpg">
+        </div>
+      </div>
+
+      <div class="work-card ">
+        <div class="work-img">
+          <img src="img/6.jpg">
+        </div>
+      </div>
+
+      <div class="work-card ">
+        <div class="work-img">
+          <img src="img/7.jpg">
+        </div>
+      </div>
+
+      <div class="work-card ">
+        <div class="work-img">
+          <img src="img/8.jpg">
+        </div>
+      </div>
+
+      <div class="work-card ">
+        <div class="work-img">
+          <img src="img/9.jpg">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ================= SERVICES ================= -->
+<section class="strategy-section reveal-section">
+  <div class="container">
+
+    <h3 class="strategy-title reveal-item">
+      UNLOCK BUSINESS IMPACT STRATEGIES
+    </h3>
+
+    <div class="strategy-grid">
+
+      <div class="strategy-item fade-left" >
+        <span class="strategy-icon">
+          <img src="img/digital_brand.jpg" alt="">
+        </span>
+        <span class="strategy-text">Digital Brand Building</span>
+      </div>
+
+      <div class="strategy-item fade-right">
+        <span class="strategy-icon">
+          <img src="img/social_media.jpg" alt="">
+        </span>
+        <span class="strategy-text">Social Media Strategy & Management</span>
+      </div>
+
+      <div class="strategy-item fade-left">
+        <span class="strategy-icon">
+          <img src="img/impactful_advertising.jpg" alt="">
+        </span>
+        <span class="strategy-text">Impactful Advertising</span>
+      </div>
+
+      <div class="strategy-item fade-right">
+        <span class="strategy-icon">
+          <img src="img/you_tube.jpg" alt="">
+        </span>
+        <span class="strategy-text">YouTube Marketing</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= STATS ================= -->
+
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+
+      <div class="stat-box">
+        <div class="stat-content">
+          <h2 data-target="35">0+</h2>
+          <p>Years of<br>Experience</p>
+        </div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-content">
+          <h2 data-target="1500">0+</h2>
+          <p>Projects Executed<br>Worldwide</p>
+        </div>
+      </div>
+
+      <div class="stat-box">
+        <div class="stat-content">
+          <h2 data-target="30">0+</h2>
+          <p>Team of Multidisciplinary<br>Experts</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+ <section class="contact-section reveal-section" id="contact">
+
+  <!-- Appointment Button (OUTSIDE CARD) -->
+  <a href="#" class="appointment-btn">BOOK AN APPOINTMENT</a>
+<div class="container">
+  <div class="contact-layout">
+
+    <!-- LEFT : VIDEO (BADA) -->
+    <div class="contact-video">
+      <video autoplay muted loop playsinline>
+        <source src="img/video.mp4" type="video/mp4">
+
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- RIGHT : FORM (CHHOTA) -->
+    <div class="contact-form-box">
+      <form class="contact-form">
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="E-mail">
+        <input type="text" placeholder="Contact Number">
+        <input type="text" placeholder="Subject">
+        <textarea rows="3" placeholder="Drop your Message"></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+</section>
+
+
+<!-- Footer -->
+<footer class="footer-section">
+  <div class="container">
+
+    <!-- TOP FOOTER -->
+    <div class="footer-top">
+
+      <!-- Services -->
+   <div class="footer-col services-col" style="margin-left:75px">
+  <h6>Services</h6>
+
+  <ul class="services-list" style="margin-top:23px">
+    <li>
+      <img src="img/brand.jpg">
+      
+    </li>
+
+    <li>
+      <img src="img/digital.jpg">
+      
+    </li>
+
+    <li>
+      <img src="img/space.jpg">
+      
+    </li>
+  </ul>
+</div>
+
+
+
+      <!-- Corporate Office -->
+      <div class="footer-col">
+        <h6>Corporate Office:<br>Pune</h6>
+        <ul>
+          <li><i class="bi bi-geo-alt"></i>Bungalow No. B/6,
+Mantri Manor Co-op Housing Society,
+377, Koregaon Park,
+Pune - 411001,<br> India</li>
+          <li><i class="bi bi-telephone"></i> For Business Enquiry: <br>+91 91757 57461</li>
+          <li><i class="bi bi-envelope"></i> aneesh@intericsdesigns.com</li>
+           <li><i class="bi bi-envelope"></i> For Career Enquiry:<br>
+info@intericsdesigns.com</li>
+        </ul>
+      </div>
+
+      <!-- Regional Office -->
+      <div class="footer-col">
+        <h6>Regional Office:<br>Mumbai</h6>
+        <ul>
+          <li><i class="bi bi-geo-alt"></i> 2nd Floor, Agnelo House,
+156, S.V. Road,
+Khar - West,
+Mumbai – 400 052, India</li>
+          <li><i class="bi bi-telephone"></i>For Business Enquiry: <BR> +91 91757 57461</li>
+          <li><i class="bi bi-envelope"></i> aneesh@intericsdesigns.com</li>
+        </ul>
+      </div>
+
+      <!-- International Office -->
+      <div class="footer-col">
+        <h6>International Office:<br>London</h6>
+        <ul>
+          <li><i class="bi bi-geo-alt"></i> 128, City Road,
+London, EC1V 2NX,
+United Kingdom</li>
+          <li><i class="bi bi-telephone"></i> For Business Enquiry: <BR>+447760335497</li>
+          <li><i class="bi bi-envelope"></i> marketing@intericsdesigns.com
+
+</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+<div class="footer-bottom-custom">
+
+  <div class="footer-line-row">
+
+    <!-- LOGO (slightly center-left) -->
+    <div class="footer-logo-custom">
+      <img src="img/footer_logo.jpg" alt="Interics">
+    </div>
+
+    <!-- BORDER LINE -->
+    <!-- SOCIAL ICONS (on the line) -->
+    <div class="footer-social-custom">
+      <a href="https://www.facebook.com/intericsdesigns"><i class="bi bi-facebook"></i></a>
+      <a href="https://www.instagram.com/intericsdesigns/"><i class="bi bi-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/intericsdesigns/"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <div class="footer-line"></div>
+
+
+  </div>
+
+</div>
+
+
+</footer>
+
+
+<script>
+    // future animations or counters
+// future advanced animation hooks
+console.log("Hero animation loaded");
+
+const sections = document.querySelectorAll('.reveal-section');
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+      } else {
+        entry.target.classList.remove('active'); 
+        // 👆 isse animation reset hoga
+      }
+    });
+  },
+  {
+    threshold: 0.3   // 30% section visible hone par trigger
+  }
+);
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+
+const fadeItems = document.querySelectorAll('.fade-left, .fade-right');
+
+const fadeObserver = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        fadeObserver.unobserve(entry.target); // 👈 only once
+      }
+    });
+  },
+  { threshold: 0.3 }
+);
+
+fadeItems.forEach(item => fadeObserver.observe(item));
+
+
+
+const counters = document.querySelectorAll('.counter');
+
+const runCounter = () => {
+  counters.forEach(counter => {
+    counter.innerText = '0';
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+
+    const update = () => {
+      const inc = target / 80;
+      if (count < target) {
+        count += inc;
+        counter.innerText = Math.ceil(count);
+        requestAnimationFrame(update);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    update();
+  });
+};
+
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+const workCards = document.querySelectorAll('.work-card');
+
+const workObserver = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // ✅ ONE TIME ONLY
+      }
+    });
+  },
+  { threshold: 0.2 }
+);
+
+workCards.forEach(card => {
+  workObserver.observe(card);
+});
+
+</script>
+<script>
+const enquiryBtn = document.getElementById('enquiryBtn');
+const enquiryPopup = document.getElementById('enquiryPopup');
+const closePopup = document.getElementById('closePopup');
+
+enquiryBtn.addEventListener('click', () => {
+  enquiryPopup.classList.add('active');
+});
+
+closePopup.addEventListener('click', () => {
+  enquiryPopup.classList.remove('active');
+});
+
+enquiryPopup.addEventListener('click', (e) => {
+  if (e.target === enquiryPopup) {
+    enquiryPopup.classList.remove('active');
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const statsSection = document.querySelector('.stats-section');
+    const counters = document.querySelectorAll('.stat-box h2');
+
+    const startCounters = () => {
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000; // 2 seconds total time
+            const startTime = performance.now();
+
+            const updateCount = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+                
+                // EaseOutQuad effect for smooth stopping
+                const currentNum = Math.floor(progress * target);
+                
+                counter.innerText = currentNum + "+";
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target + "+";
+                }
+            };
+            requestAnimationFrame(updateCount);
+        });
+    };
+
+    // Observer to start animation when visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounters();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if (statsSection) observer.observe(statsSection);
+
+    // Toggle Button Logic
+    const toggleBtn = document.getElementById('contactToggle');
+    const contactBox = document.getElementById('headerContact');
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', () => {
+            contactBox.classList.toggle('active');
+        });
+    }
+});
+</script>
